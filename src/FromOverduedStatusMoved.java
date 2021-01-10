@@ -1,0 +1,19 @@
+public class FromOverduedStatusMoved extends Bookmover {
+    @Override
+    public void moveToStatus(Book book, Status requestedStatus) {
+        switch (requestedStatus) {
+            case ARCHIVED:
+                book.setStatus(Status.ARCHIVED);
+                break;
+            case AVAILABLE:
+                book.setStatus(Status.AVAILABLE);
+                break;
+            case BORROWED:
+                System.out.println("Перевод книги из статуса OVERDUED в статус" + requestedStatus + " невозможен");
+            case OVERDUED:
+                System.out.println("Книга уже имеет это статус");
+        }
+
+        System.out.println("Статус книги: " + book.getStatus());
+    }
+}
